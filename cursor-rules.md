@@ -133,3 +133,74 @@ Development Expectations
 - Ensure all flows work from unauthenticated to authenticated state seamlessly.
 
 Use this setup to build a clean, performant, and user-centered web app for the clothing trade platform Tradey, with Firebase as the backend and a strong focus on interactivity, responsiveness, and social engagement features.
+
+TRADEY sa vizuelnim smernicama. Evo finalne verzije za tekstualni fajl, uključujući i:
+
+Definisane fontove (naslovni i tekstualni)
+
+Definisanu primarnu paletu boja
+
+Savet za primenu u digitalnim materijalima i UI
+
+TRADEY – Brand Identitet
+(za .txt fajl ili Brand Book osnovu)
+
+1. Core Brand Attributes
+Disruptivan
+
+Svestan i održiv
+
+Urbano-minimalistički
+
+Samouveren, direktan
+
+Zajednički i otvoren
+
+2. Tone of Voice
+Direktan, ali prijateljski
+
+Samouveren i motivišući
+
+Empatičan prema potrebama zajednice
+
+Moderan buntovnik protiv prekomerne potrošnje
+
+3. Arhetipovi
+Revolucionar (Outlaw)
+
+Prijatelj (Everyman)
+
+4. Emocionalni Ankori
+Sloboda
+
+Pripadnost
+
+Osveženje
+
+Odgovornost
+
+Igra
+
+5. Brand Manifesto
+„Mi ne kupujemo stil. Mi ga stvaramo.“
+TRADEY je više od aplikacije – to je pokret protiv zasićenosti, protiv bacanja, protiv uniformisanosti.
+Ovde ne kupuješ da bi imao više – već menjaš da bi imao bolje.
+Mi verujemo da je moda sloboda, a garderoba sredstvo izražavanja, ne konzumerizma.
+U TRADEY svetu, tvoja stara jakna je nečija nova omiljena stvar.
+Zato menjamo. Zajedno. Odvažno. Odgovorno. TRADEY.
+
+6. Tipografija (Fonts)
+Naslovni font: Anton
+
+Debeo, geometrijski, odlučan. Idealan za bannere, CTA dugmiće, hero sekcije.
+
+Tekstualni font: Neki mali gothic stil (preporuka: EB Garamond, UnifrakturCook, Cormorant Garamond – ili bilo koji stilizovan serif/gothic).
+
+Koristiti za opise, uputstva, sitnije elemente (footer, FAQ, mikrocopy).
+
+7. Boje (Brand Colors)
+Element	Boja	HEX kod	Značenje
+Primarna Crvena	Tamno crvena	#a61f1e	Strast, akcija, energija
+Sekundarna Plava	Svetloplava	#a2c8ff	Svežina, balans, poverenje
+Pozadinska Crna	Crna	#000000	Minimalizam, oštrina, kontrast
+
