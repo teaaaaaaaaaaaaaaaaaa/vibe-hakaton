@@ -9,7 +9,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCqGrnMqTeMGWOmmpKHjZn3S99-WZ0yzWs",
   authDomain: "vibe-hakaton.firebaseapp.com",
   projectId: "vibe-hakaton",
-  storageBucket: "vibe-hakaton.appspot.com",
+  storageBucket: "vibe-hakaton.firebasestorage.app",
   messagingSenderId: "225908111904",
   appId: "1:225908111904:web:36ffedcbbdfd2ed0b85a45",
   measurementId: "G-1KRVHGJHVZ"

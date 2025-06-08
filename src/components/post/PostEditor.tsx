@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage, auth } from '../../firebase/config';
-
+import { db, auth } from '../../firebase/config';
 import { useUserProfile } from '../../hooks/useUserProfile';
+import { useUiStore } from '../../store/uiStore';
+import { uploadPostImages } from '../../firebase/storageService';
+
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 import { ImageUploader } from './ImageUploader';
@@ -14,6 +15,7 @@ import type { Post, ClothingCondition } from '../../types/entities';
 export function PostEditor() {
   const navigate = useNavigate();
   const { userProfile } = useUserProfile(auth.currentUser?.uid);
+  const showToast = useUiStore((state) => state.showToast);
   
   const [files, setFiles] = useState<File[]>([]);
   const [title, setTitle] = useState('');
@@ -31,31 +33,20 @@ export function PostEditor() {
     setError(null);
 
     if (!auth.currentUser || !userProfile) {
-      setError("You must be logged in to post.");
-      return;
+      return showToast("You must be logged in to post.", 'error');
     }
     if (files.length === 0) {
-      setError("Please upload at least one image.");
-      return;
+      return showToast("Please upload at least one image.", 'error');
     }
     if (!title || !brand || !size || !description) {
-      setError("Please fill out all required fields.");
-      return;
+      return showToast("Please fill out all required fields.", 'error');
     }
 
     setLoading(true);
 
     try {
-      // 1. Upload images to Firebase Storage
-      const imageUrls = await Promise.all(
-        files.map(async (file) => {
-          const imageRef = ref(storage, `posts/${auth.currentUser!.uid}/${Date.now()}-${file.name}`);
-          await uploadBytes(imageRef, file);
-          return await getDownloadURL(imageRef);
-        })
-      );
+      const imageUrls = await uploadPostImages(files);
       
-      // 2. Create post document in Firestore
       const newPost: Omit<Post, 'id'> = {
         title,
         description,
@@ -73,12 +64,12 @@ export function PostEditor() {
 
       await addDoc(collection(db, "posts"), newPost);
       
-      // 3. Redirect on success
+      showToast("Post created successfully!", 'success');
       navigate('/profile');
 
     } catch (err) {
       console.error("Error creating post:", err);
-      setError("Failed to create post. Please try again.");
+      showToast("Failed to create post. Please try again.", 'error');
     } finally {
       setLoading(false);
     }
@@ -131,7 +122,6 @@ export function PostEditor() {
       </div>
 
       <div className="md:col-span-2 text-right">
-        {error && <p className="text-red-500 text-sm text-left mb-2">{error}</p>}
         <div className="w-full md:w-auto md:inline-block">
           <Button type="submit" disabled={loading}>
             {loading ? 'Submitting...' : 'Submit Post'}
