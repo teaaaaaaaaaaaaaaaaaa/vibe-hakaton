@@ -1,21 +1,21 @@
-import React from 'react';
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoutes } from './routes/AppRoutes';
+import { Header } from './components/layout/Header';
+import { Toast } from './components/ui/Toast';
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+function App() {
+  return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="flex flex-col min-h-screen bg-black text-white">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <AppRoutes />
+        </main>
+        <Toast />
+        {/* A Footer component could be added here later */}
+      </div>
     </BrowserRouter>
-  </QueryClientProvider>
-);
+  );
+}
 
 export default App;
