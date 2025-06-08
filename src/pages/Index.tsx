@@ -3,8 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/ui/Button';
 import ProductCard from '../components/post/ProductCard';
 import SplashScreen from '../components/SplashScreen';
-// TODO: import needed icons from lucide-react when installed
-// import { Recycle, RefreshCw, ShoppingBag, MessageCircle } from 'lucide-react';
+import { Upload, MessageSquare, Repeat, ShoppingBag, RefreshCw, MessageCircle } from 'lucide-react';
 
 // Mock data for featured products
 const featuredProducts = [
@@ -58,23 +57,70 @@ export function IndexPage() {
     <div className="min-h-screen text-gray-800">
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-tradey-blue overflow-hidden pt-20">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="animate-fade-in">
-            <h1 className="font-anton text-8xl md:text-9xl lg:text-[12rem] text-tradey-red leading-none mb-8">
+      <section className="w-full bg-tradey-blue overflow-hidden">
+        {/* Main Hero Content */}
+        <div className="container mx-auto px-4 pt-20 pb-12 md:py-24">
+          <div className="flex flex-col items-center text-center animate-fade-in">
+            <h1 className="font-anton text-7xl md:text-9xl text-tradey-red leading-none mb-6">
               TRADEY
             </h1>
             
-            <p className="font-garamond text-xl md:text-2xl text-tradey-red mb-12 max-w-2xl mx-auto">
+            <p className="font-garamond text-xl md:text-2xl text-tradey-red mb-10 max-w-2xl">
               Menjaj, ne bacaj. Tvoja stara jakna je nečiji novi stil.
             </p>
             
-            <Button 
-              className="bg-red-700 hover:bg-red-800 text-white font-anton text-xl px-12 py-6 rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300"
-            >
-              {/* TODO: Add Recycle icon here */}
-              ŠTA JE TRADEY?
-            </Button>
+            <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-6 max-w-3xl mx-auto mb-12">
+              <h2 className="font-anton text-2xl md:text-3xl text-white mb-4 flex items-center justify-center gap-3">
+                <Repeat className="h-8 w-8 text-tradey-red" />
+                ŠTA JE TRADEY?
+              </h2>
+              <p className="font-garamond text-lg text-white mb-0">
+                TRADEY je platforma za direktnu razmenu odeće bez novca. Naš cilj je
+                stvoriti zajednicu koja podržava održivu modu i smanjuje otpad kroz kreativnu razmenu.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Three Steps Section */}
+        <div className="bg-tradey-blue border-t border-blue-400/20">
+          <div className="container mx-auto px-4 py-10">
+            <h2 className="font-anton text-3xl text-white text-center mb-12">KAKO TRADEY FUNKCIONIŠE</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {/* Step 1 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 transform transition-all duration-300 hover:scale-105">
+                <div className="bg-tradey-red rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Upload className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-anton text-xl text-white mb-3">OBJAVI ODEĆU</h3>
+                <p className="font-garamond text-gray-100">
+                  Fotografiši i objavi odeću koju više ne nosiš. Dodaj opis i detalje o stanju.
+                </p>
+              </div>
+              
+              {/* Step 2 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 transform transition-all duration-300 hover:scale-105">
+                <div className="bg-tradey-red rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <MessageSquare className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-anton text-xl text-white mb-3">KONTAKTIRAJ</h3>
+                <p className="font-garamond text-gray-100">
+                  Pronađi odeću koja ti se sviđa i kontaktiraj vlasnika direktno kroz chat.
+                </p>
+              </div>
+              
+              {/* Step 3 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 transform transition-all duration-300 hover:scale-105">
+                <div className="bg-tradey-red rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Repeat className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-anton text-xl text-white mb-3">RAZMENI</h3>
+                <p className="font-garamond text-gray-100">
+                  Dogovori razmenu bez korišćenja novca. Daj staroj odeći novi život.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -107,7 +153,7 @@ export function IndexPage() {
             <Button 
               className="bg-tradey-blue hover:bg-blue-300 text-gray-900 font-anton text-xl px-10 py-4 rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300"
             >
-              {/* TODO: Add ShoppingBag icon here */}
+              <ShoppingBag className="mr-2 h-6 w-6" />
               VIDI SVE PROIZVODE
             </Button>
           </div>
@@ -132,13 +178,13 @@ export function IndexPage() {
                 <Button 
                   className="bg-white hover:bg-gray-100 text-gray-900 font-anton text-xl px-10 py-4 rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
-                  {/* TODO: Add RefreshCw icon here */}
+                  <RefreshCw className="mr-2 h-6 w-6" />
                   REGISTRUJ SE
                 </Button>
                 <Button 
                   className="bg-tradey-blue hover:bg-blue-300 text-white font-anton text-xl px-10 py-4 rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-white"
                 >
-                  {/* TODO: Add MessageCircle icon here */}
+                  <MessageCircle className="mr-2 h-6 w-6" />
                   VEĆ IMAŠ NALOG?
                 </Button>
               </div>
