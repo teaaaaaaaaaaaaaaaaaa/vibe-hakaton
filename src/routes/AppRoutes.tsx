@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthWrapper } from '../components/layout/AuthWrapper';
 
 // Import Pages
-import { LandingPage } from '../pages/Landing';
+import { IndexPage } from '../pages/Index';
 import { LoginPage } from '../pages/Login';
 import { SignupPage } from '../pages/Signup';
 import { ProfilePage } from '../pages/Profile';
@@ -17,7 +17,7 @@ export function AppRoutes() {
   return (
     <Routes>
       {/* Public Routes */}
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={<IndexPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/item/:id" element={<ItemViewPage />} />
