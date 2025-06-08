@@ -106,7 +106,72 @@ Folder Structure
 - `src/hooks/` → Custom hooks (`useAuth`, `useChats`)
 - `src/firebase/` → Firebase client, auth, storage setup
 - `src/utils/` → Helpers, types, constants
-- `src/styles/` → `tailwind.config.ts`, global setup only
+
+this is how it should look - but with some minor changes maybe:
+tradey/
+├── public/
+│ └── index.html # Entry point HTML file
+├── src/
+│ ├── assets/ # Static images, icons, etc.
+│ ├── components/ # Shared, reusable components
+│ │ ├── auth/
+│ │ │ └── LoginForm.tsx
+│ │ ├── chat/
+│ │ │ └── ChatBox.tsx
+│ │ ├── layout/
+│ │ │ ├── Header.tsx
+│ │ │ ├── Footer.tsx
+│ │ │ └── AuthWrapper.tsx
+│ │ ├── post/
+│ │ │ ├── PostCard.tsx
+│ │ │ ├── PostEditor.tsx
+│ │ │ └── ImageUploader.tsx
+│ │ └── ui/
+│ │ ├── Button.tsx
+│ │ ├── Modal.tsx
+│ │ ├── Spinner.tsx
+│ │ └── Toast.tsx
+│ ├── constants/
+│ │ └── firebasePaths.ts
+│ ├── firebase/ # Firebase SDK wrappers
+│ │ ├── config.ts
+│ │ ├── auth.ts
+│ │ ├── firestore.ts
+│ │ └── storage.ts
+│ ├── hooks/
+│ │ ├── useAuth.ts
+│ │ ├── usePosts.ts
+│ │ ├── useChat.ts
+│ │ └── useFollow.ts
+│ ├── pages/ # Page components (mapped to routes)
+│ │ ├── Landing.tsx
+│ │ ├── Login.tsx
+│ │ ├── Signup.tsx
+│ │ ├── Profile.tsx
+│ │ ├── ItemView.tsx
+│ │ ├── Chat.tsx
+│ │ ├── Liked.tsx
+│ │ ├── Following.tsx
+│ │ └── UserProfile.tsx
+│ ├── routes/
+│ │ └── AppRoutes.tsx # React Router config
+│ ├── store/ # Zustand (or other) global state
+│ │ ├── authStore.ts
+│ │ └── chatStore.ts
+│ ├── types/
+│ │ ├── User.ts
+│ │ ├── Post.ts
+│ │ └── Chat.ts
+│ ├── utils/
+│ │ ├── formatDate.ts
+│ │ └── uploadFile.ts
+│ ├── App.tsx
+│ └── main.tsx
+├── .env
+├── tsconfig.json
+├── vite.config.ts # Includes @tailwindcss/vite plugin
+├── package.json
+└── README.md
 
 Firebase Usage
 
